@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Full-Screen Video with Clickable Parts</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .clickable-area {
+            position: absolute;
+            background: rgba(255, 0, 0, 0.3); /* Adjust color and transparency */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" autoplay loop>
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="clickable-area" style="top: 20%; left: 20%; width: 30%; height: 30%;" onclick="handleClick('Area 1')"></div>
+    <div class="clickable-area" style="top: 50%; left: 50%; width: 40%; height: 20%;" onclick="handleClick('Area 2')"></div>
+    
+    <script>
+        function handleClick(area) {
+            alert('You clicked on ' + area);
+            // Perform actions or navigate to specific parts based on the area clicked
+        }
+    </script>
+</body>
+</html>
